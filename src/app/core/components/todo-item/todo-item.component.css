@@ -1,0 +1,12 @@
+.todo-item {
+  margin-top: 8px;
+  margin-botom: 8px;
+}
+
+.todo-checkbox-content {
+  width: 100% !important;
+}
+
+.todo-input {
+  width: 100%;
+}

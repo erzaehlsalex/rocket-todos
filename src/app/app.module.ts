@@ -3,16 +3,37 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatToolbarModule} from '@angular/material';
+import {TodosService} from './core/services/todos.service';
+import {TodoListComponent} from './core/components/todo-list/todo-list.component';
+import {TodoItemComponent} from './core/components/todo-item/todo-item.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { TodoCreateComponent } from './core/components/todo-create/todo-create.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DeleteModalComponent } from './core/components/delete-modal/delete-modal.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodoListComponent,
+    TodoItemComponent,
+    TodoCreateComponent,
+    DeleteModalComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [TodosService],
+  entryComponents: [DeleteModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

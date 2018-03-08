@@ -1,14 +1,14 @@
 import { AppPage } from './app.po';
 
-describe('todo-list App', () => {
+describe('rocket-todos App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display the toolbar with the right title', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getToolbarText()).toEqual('Rocket Todos');
   });
 });
