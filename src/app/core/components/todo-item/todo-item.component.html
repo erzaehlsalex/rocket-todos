@@ -1,20 +1,22 @@
 <mat-card class="todo-item">
-  <mat-card-content>
-    <mat-checkbox class="todo-checkbox-content" [checked]="todo.checked">
-      <p *ngIf="!isEditing">{{todo.content}}</p>
+  <mat-card-content class="content">
+    <div class="checkbox-container">
+      <mat-checkbox class="" [checked]="todo.checked">
+        <p *ngIf="!isEditing">{{todo.content}}</p>
+      </mat-checkbox>
       <mat-form-field *ngIf="isEditing" class="todo-input" [formGroup]="todoForm">
         <input matInput placeholder="What do you have to todo?" formControlName="content">
       </mat-form-field>
-    </mat-checkbox>
+    </div>
+    <div class="actions">
+      <ng-container *ngIf="!isEditing">
+        <button mat-button (click)="toggleEditTodo()">EDIT</button>
+        <button mat-button (click)="onDeleteTodo()">DELETE</button>
+      </ng-container>
+      <ng-container *ngIf="isEditing">
+        <button mat-button (click)="toggleEditTodo()">CANCEL</button>
+        <button mat-button (click)="onSaveTodo()">SAVE</button>
+      </ng-container>
+    </div>
   </mat-card-content>
-  <mat-card-actions align="right">
-    <ng-container *ngIf="!isEditing">
-      <button mat-button (click)="toggleEditTodo()">EDIT</button>
-      <button mat-button (click)="onDeleteTodo()">DELETE</button>
-    </ng-container>
-    <ng-container *ngIf="isEditing">
-      <button mat-button (click)="toggleEditTodo()">CANCEL</button>
-      <button mat-button (click)="onSaveTodo()">SAVE</button>
-    </ng-container>
-  </mat-card-actions>
 </mat-card>

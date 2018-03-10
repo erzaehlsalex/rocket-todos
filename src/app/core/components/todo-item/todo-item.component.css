@@ -1,12 +1,28 @@
 .todo-item {
   margin-top: 8px;
   margin-botom: 8px;
+  padding: 8px 16px;
 }
 
-.todo-checkbox-content {
-  width: 100% !important;
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.actions {
+
 }
 
 .todo-input {
-  width: 100%;
+  flex: 1;
 }
