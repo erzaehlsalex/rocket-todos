@@ -3,5 +3,5 @@
 </mat-toolbar>
 <div class="content">
   <app-todo-create (addTodo)="onAddTodo($event)"></app-todo-create>
-  <app-todo-list [todos]="todos$ | async" (saveTodo)="onSaveTodo($event)" (deleteTodo)="onDeleteTodo($event)"></app-todo-list>
+  <app-todo-list [todos]="todos$ | async" (saveTodo)="onSaveTodo($event)" (deleteTodo)="onDeleteTodo($event)" (checkTodo)="onCheckTodo($event)"></app-todo-list>
 </div>

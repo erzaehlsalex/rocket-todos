@@ -13,9 +13,13 @@ export class TodoItemComponent implements OnInit, OnChanges {
 
   isEditing: boolean;
 
+  todoChecked: boolean;
+
   @Output() saveTodo: EventEmitter<{ id: number, content: string }> = new EventEmitter<{ id: number, content: string }>();
 
   @Output() deleteTodo: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output() checkTodo: EventEmitter<number> = new EventEmitter<number>();
 
   todoForm: FormGroup;
 
@@ -33,6 +37,7 @@ export class TodoItemComponent implements OnInit, OnChanges {
       this.todoForm.patchValue({
         content: this.todo.content
       });
+      this.todoChecked = this.todo.checked;
     }
   }
 
@@ -43,6 +48,10 @@ export class TodoItemComponent implements OnInit, OnChanges {
 
   onDeleteTodo() {
     this.deleteTodo.next(this.todo.id);
+  }
+
+  onCheckTodo() {
+    this.checkTodo.next(this.todo.id);
   }
 
   onSaveTodo() {

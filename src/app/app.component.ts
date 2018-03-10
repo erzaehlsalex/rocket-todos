@@ -36,4 +36,8 @@ export class AppComponent {
   onAddTodo(content: string) {
     this.todosService.addTodo(content);
   }
+
+  onCheckTodo(todoId: number) {
+    this.todosService.checkTodo(todoId);
+  }
 }

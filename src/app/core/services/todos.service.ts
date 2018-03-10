@@ -22,7 +22,7 @@ export class TodosService {
       [2]: {
         id: 2,
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore',
-        checked: false
+        checked: true
       }
     };
     this.publishTodos();

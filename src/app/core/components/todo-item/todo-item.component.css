@@ -23,6 +23,10 @@
 
 }
 
-.todo-input {
+.todo-input-field {
   flex: 1;
+}
+
+.todo-content-checked {
+  text-decoration: line-through;
 }

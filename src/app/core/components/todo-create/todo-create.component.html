@@ -1,8 +1,8 @@
 <mat-card class="todo-create">
   <mat-card-content class="content">
-    <mat-form-field class="todo-input" [formGroup]="todoForm">
-      <input matInput placeholder="What do you have to todo?" formControlName="content">
+    <mat-form-field class="todo-input-field" [formGroup]="todoForm">
+      <input matInput placeholder="What do you have to todo?" formControlName="content" class="todo-input">
     </mat-form-field>
-    <button mat-button (click)="onAddTodo()">ADD</button>
+    <button mat-button (click)="onAddTodo()" class="todo-add-button">ADD</button>
   </mat-card-content>
 </mat-card>

@@ -14,6 +14,8 @@ export class TodoListComponent implements OnInit {
 
   @Output() deleteTodo: EventEmitter<number> = new EventEmitter<number>();
 
+  @Output() checkTodo: EventEmitter<number> = new EventEmitter<number>();
+
   constructor() {
   }
 
@@ -26,5 +28,9 @@ export class TodoListComponent implements OnInit {
 
   onDeleteTodo(id: number) {
     this.deleteTodo.next(id);
+  }
+
+  onCheckTodo(id: number) {
+    this.checkTodo.next(id);
   }
 }

@@ -23,9 +23,7 @@ export class TodoCreateComponent implements OnInit {
 
   onAddTodo() {
     this.addTodo.next(this.todoForm.get('content').value.trim());
-    this.todoForm.patchValue({
-      content: ''
-    });
+    this.todoForm.reset();
   }
 
 }
