@@ -17,9 +17,9 @@ describe('rocket-todos App', () => {
     const todoAddButton = page.getCreateTodoAddButton();
     const todoInput = page.getCreateTodoInput();
     const todoConent = 'Create presentation slides';
-    browser.sleep(4000);
+    browser.sleep(2000);
     todoInput.sendKeys(todoConent).then(() => todoAddButton.click()).then(() => {
-      browser.sleep(2000);
+      browser.sleep(1000);
       expect(page.getLastTodoContent()).toEqual(todoConent);
     });
   });
@@ -28,7 +28,7 @@ describe('rocket-todos App', () => {
     const firstTodoCheckbox = page.getFirstTodoCheckbox();
     const firstTodoCheckboxState = page.getFirstTodoCheckboxState();
     firstTodoCheckbox.click().then(() => {
-      browser.sleep(3000);
+      browser.sleep(2000);
       expect(page.getFirstTodoCheckboxState()).not.toEqual(firstTodoCheckboxState);
     });
   });
@@ -37,22 +37,33 @@ describe('rocket-todos App', () => {
     const todoAddButton = page.getCreateTodoAddButton();
     const todoInput = page.getCreateTodoInput();
     const todoConent = 'Present the slids';
-    browser.sleep(4000);
+    browser.sleep(2000);
     todoInput.sendKeys(todoConent).then(() => todoAddButton.click()).then(() => {
       browser.sleep(2000);
       expect(page.getLastTodoContent()).toEqual(todoConent);
-      const todoEditButton = page.getLastTodoEditButton();
-      const todoSaveButton = page.getLastTodoSaveButton();
-      const lastTodoInput = page.getLastTodoInput();
-      const newTodoContent = 'Present the slides';
-
-      todoEditButton.click().then(() => {
-        lastTodoInput.clear();
-        browser.sleep(1000);
-        return lastTodoInput.sendKeys(newTodoContent);
-      }).then(() => todoSaveButton.click()).then(() => {
+      const lastTodoCheckbox = page.getLastTodoCheckbox();
+      const lastTodoCheckboxState = page.getLastTodoCheckboxState();
+      lastTodoCheckbox.click().then(() => {
         browser.sleep(2000);
-        expect(page.getLastTodoContent()).toEqual(newTodoContent);
+        expect(page.getFirstTodoCheckboxState()).not.toEqual(lastTodoCheckboxState);
+        const todoEditButtonDisabledState = page.getLastTodoEditButtonDisabledState();
+        expect(todoEditButtonDisabledState).toBe('true', 'The edit button was not disabled after the todo was checked');
+        lastTodoCheckbox.click().then(() => {
+          const todoEditButton = page.getLastTodoEditButton();
+
+          const todoSaveButton = page.getLastTodoSaveButton();
+          const lastTodoInput = page.getLastTodoInput();
+          const newTodoContent = 'Present the slides';
+
+          todoEditButton.click().then(() => {
+            lastTodoInput.clear();
+            browser.sleep(1000);
+            return lastTodoInput.sendKeys(newTodoContent);
+          }).then(() => todoSaveButton.click()).then(() => {
+            browser.sleep(1000);
+            expect(page.getLastTodoContent()).toEqual(newTodoContent);
+          });
+        });
       });
     });
   });
@@ -61,7 +72,7 @@ describe('rocket-todos App', () => {
     const todoAddButton = page.getCreateTodoAddButton();
     const todoInput = page.getCreateTodoInput();
     const todoConent = 'Create presentation slides';
-    browser.sleep(4000);
+    browser.sleep(2000);
     todoInput.sendKeys(todoConent).then(() => todoAddButton.click()).then(() => {
       browser.sleep(2000);
       expect(page.getLastTodoContent()).toEqual(todoConent);

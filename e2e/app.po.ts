@@ -41,6 +41,10 @@ export class AppPage {
     return this.getLastTodo().element(by.css('.todo-edit-button'));
   }
 
+  getLastTodoEditButtonDisabledState() {
+    return this.getLastTodoEditButton().getAttribute('disabled');
+  }
+
   getLastTodoSaveButton() {
     return this.getLastTodo().element(by.css('.todo-save-button'));
   }
@@ -63,6 +67,14 @@ export class AppPage {
 
   getFirstTodoCheckboxState() {
     return this.getFirstTodoCheckbox().element(by.model('todoChecked'));
+  }
+
+  getLastTodoCheckbox() {
+    return this.getLastTodo().element(by.css('.todo-checkbox'));
+  }
+
+  getLastTodoCheckboxState() {
+    return this.getLastTodoCheckbox().element(by.model('todoChecked'));
   }
 
   getDeleteModal() {
