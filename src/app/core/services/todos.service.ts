@@ -14,16 +14,7 @@ export class TodosService {
 
   constructor() {
     this.entities = {
-      [1]: {
-        id: 1,
-        content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna',
-        checked: false
-      },
-      [2]: {
-        id: 2,
-        content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore',
-        checked: true
-      }
+
     };
     this.publishTodos();
   }

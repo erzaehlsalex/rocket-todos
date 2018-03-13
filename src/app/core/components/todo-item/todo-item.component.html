@@ -10,7 +10,7 @@
     </div>
     <div class="actions">
       <ng-container *ngIf="!isEditing">
-        <button mat-button *ngIf="!todoChecked" (click)="toggleEditTodo()" class="todo-edit-button">EDIT</button>
+        <button mat-button (click)="toggleEditTodo()" class="todo-edit-button">EDIT</button>
         <button mat-button (click)="onDeleteTodo()" class="todo-delete-button">DELETE</button>
       </ng-container>
       <ng-container *ngIf="isEditing">
