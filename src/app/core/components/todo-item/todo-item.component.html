@@ -11,7 +11,7 @@
     <div class="actions">
       <ng-container *ngIf="!isEditing">
         <button mat-button (click)="toggleEditTodo()" class="todo-edit-button">EDIT</button>
-        <button mat-button (click)="onDeleteTodo()" class="todo-delete-button">DELETE</button>
+        <button mat-button [disabled]="todoChecked" (click)="onDeleteTodo()" class="todo-delete-button">DELETE</button>
       </ng-container>
       <ng-container *ngIf="isEditing">
         <button mat-button (click)="toggleEditTodo()" class="todo-cancel-button">CANCEL</button>
